@@ -9,3 +9,12 @@ Setup [IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/user
 * PRIVATE_KEY_PATH
 
 Make sure to mount one certificate files signed with the trusted CA and indicate the path in the env vars.
+
+## Main usage
+
+This docker image is meant to be used as a sidecar container.
+It would start a web server listening at localhost:9911 that would be used as the way to authenticate your application with the following environment variable:
+
+```
+AWS_EC2_METADATA_SERVICE_ENDPOINT=http://127.0.0.1:9911
+```
